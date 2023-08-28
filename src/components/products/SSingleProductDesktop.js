@@ -5,6 +5,8 @@ import FavouriteIcon from "@mui/icons-material/Favorite"
 import ShareIcon from "@mui/icons-material/Share"
 import FitScreenIcon from "@mui/icons-material/FitScreen"
 import { useState } from "react";
+import useDialogModal from "../../hooks/useDialogModal";
+import ProductDetail from "../productDeteil";
 
 const SSingleProductDesktop = ({ product, matches }) => {
 
@@ -18,14 +20,16 @@ const SSingleProductDesktop = ({ product, matches }) => {
         setShowOptions(false)
     }
 
+    const [ProductDetailDialog,
+        showProductDetailDialog,
+        closeProductDetailDialog] = useDialogModal(ProductDetail)
+
     return (
         <>
             <Product onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                 <ProductImage src={product.image} />
                 <ProductFavButton >
-                    {/* <IconButton aria-label="add to favorites" top={0} right={0}> */}
                         <Checkbox icon={<FavouriteIcon />} checkedIcon={<FavouriteIcon sx={{ color: "red" }} />} />
-                    {/* </IconButton> */}
                 </ProductFavButton>
 
                 {
@@ -38,13 +42,14 @@ const SSingleProductDesktop = ({ product, matches }) => {
                         <ProductActionButton>
                             <ShareIcon color="primary" />
                         </ProductActionButton>
-                        <ProductActionButton>
+                        <ProductActionButton onClick={() => showProductDetailDialog()}>
                             <FitScreenIcon color="primary" />
                         </ProductActionButton>
                     </Stack>
                 </ProductActionsWrapper>
                 <PProductMeta product={product} matches={matches} />
             </Product>
+            <ProductDetailDialog product={product} />
         </>
 
     )

@@ -4,7 +4,6 @@ import { FooterTitle, SubscribeTf } from "../../styles/footer";
 import { Facebook, Instagram, Send, Telegram, Twitter } from "@mui/icons-material";
 
 
-
 export default function Footer() {
     return (
         <Box
@@ -103,6 +102,17 @@ export default function Footer() {
                         </Button>
                     </Stack>
                 </Grid>
+                <Typography
+                sx={{
+                    color: Colors.white,
+                    pt:10,
+                    pb:3,
+                    fontFamily: "cursive",
+                    fontSize: "1em",
+                }}
+                >
+                    Created by noila🙌
+                </Typography>
             </Grid>
         </Box>
     )
