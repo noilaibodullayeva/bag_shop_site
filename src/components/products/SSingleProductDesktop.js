@@ -22,20 +22,19 @@ const SSingleProductDesktop = ({ product, matches }) => {
         <>
             <Product onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                 <ProductImage src={product.image} />
-                <ProductFavButton isFav={0}>
-                    <IconButton aria-label="add to favorites" top={0} right={0}>
+                <ProductFavButton >
+                    {/* <IconButton aria-label="add to favorites" top={0} right={0}> */}
                         <Checkbox icon={<FavouriteIcon />} checkedIcon={<FavouriteIcon sx={{ color: "red" }} />} />
-                    </IconButton>
+                    {/* </IconButton> */}
                 </ProductFavButton>
 
                 {
-                    showOptions && <ProductAddToCart show={showOptions} variant="outlined">
+                    showOptions && <ProductAddToCart show={showOptions} variant="contained">
                         Add to card
                     </ProductAddToCart>
                 }
                 <ProductActionsWrapper show={showOptions}>
                     <Stack direction="column" sx={{ pt: "15px" }}>
-
                         <ProductActionButton>
                             <ShareIcon color="primary" />
                         </ProductActionButton>
@@ -46,7 +45,6 @@ const SSingleProductDesktop = ({ product, matches }) => {
                 </ProductActionsWrapper>
                 <PProductMeta product={product} matches={matches} />
             </Product>
-
         </>
 
     )
