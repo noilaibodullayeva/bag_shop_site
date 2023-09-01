@@ -7,8 +7,6 @@ const Banner = () => {
     const matches = useMediaQuery(theme.breakpoints.down(`md`))
 
     return (
-
-
         <BannerContainer>
             <BannerImage src="/images/banner/banner.png" />
             <BannerContent>
